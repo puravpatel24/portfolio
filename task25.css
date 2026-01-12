@@ -1,0 +1,115 @@
+/* ==================== 
+   Background & Page Layout
+   ==================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==================== 
+   Form Container
+   ==================== */
+.login-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+
+/* ==================== 
+   Form Elements
+   ==================== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* ==================== 
+   Input Groups
+   ==================== */
+.input-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: .4rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: .8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all .3s ease;
+    outline: none;
+}
+
+/* Focus glow effect */
+.input-group input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, .2);
+}
+
+/* ==================== 
+   Forgot Password Link
+   ==================== */
+.forgot-password {
+    margin-top: .4rem;
+    text-align: right;
+    font-size: .9rem;
+    color: #6a11cb;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 
+   Login Button
+   ==================== */
+.login-btn {
+    margin-top: .5rem;
+    padding: .9rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,.1);
+}
+
+/* ==================== 
+   Small Responsive tweak
+   ==================== */
+@media (max-width: 400px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+}
