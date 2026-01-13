@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="taskc27.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Registration Form</h2>
+
+    <form>
+        <div class="row">
+            <div class="field">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter first name" required>
+            </div>
+
+            <div class="field">
+                <label>Last Name</label>
+                <input type="text" placeholder="Enter last name" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Email</label>
+                <input type="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="field">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="field">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm password" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field full">
+                <label>Date of Birth</label>
+                <input type="date" required>
+            </div>
+        </div>
+
+        <div class="gender-section">
+            <label>Gender</label>
+            <div class="gender-options">
+                <label class="radio">
+                    <input type="radio" name="gender">
+                    <span></span> Male
+                </label>
+
+                <label class="radio">
+                    <input type="radio" name="gender">
+                    <span></span> Female
+                </label>
+
+                <label class="radio">
+                    <input type="radio" name="gender">
+                    <span></span> Other
+                </label>
+            </div>
+        </div>
+
+        <div class="terms">
+            <label class="checkbox">
+                <input type="checkbox" required>
+                <span></span> I agree to the terms and conditions
+            </label>
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+</body>
+</html>
