@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="taskcol.css">
+</head>
+<body>
+
+<div class="contact-container">
+    <form class="contact-form">
+        <h2>Contact Us</h2>
+
+        <!-- Full Name -->
+        <div class="input-group">
+            <input type="text" required>
+            <label>Full Name</label>
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <input type="email" required>
+            <label>Email Address</label>
+        </div>
+
+        <!-- Phone -->
+        <div class="input-group">
+            <input type="tel" required>
+            <label>Phone Number</label>
+        </div>
+
+        <!-- Subject Dropdown -->
+        <div class="input-group">
+            <select required>
+                <option value="" disabled selected></option>
+                <option>General Inquiry</option>
+                <option>Support</option>
+                <option>Feedback</option>
+                <option>Other</option>
+            </select>
+            <label>Subject</label>
+        </div>
+
+        <!-- Message -->
+        <div class="input-group">
+            <textarea required></textarea>
+            <label>Your Message</label>
+        </div>
+
+        <!-- File Upload -->
+        <div class="file-group">
+            <label class="file-label">
+                Attach File
+                <input type="file">
+            </label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+</body>
+</html>
