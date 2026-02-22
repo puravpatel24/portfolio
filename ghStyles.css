@@ -1,0 +1,433 @@
+:root {
+    --bgPrimary: #0d1117;
+    --bgSecondary: #161b22;
+    --bgTertiary: #21262d;
+    --borderDefault: #30363d;
+    --textPrimary: #f0f6fc;
+    --textSecondary: #8b949e;
+    --accentBlue: #58a6ff;
+    --accentGreen: #3fb950;
+    --accentRed: #f85149;
+    --accentPurple: #a371f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    background: var(--bgPrimary);
+    color: var(--textPrimary);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.appWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.topBar {
+    text-align: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--borderDefault);
+    margin-bottom: 24px;
+}
+
+.topBar h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, var(--accentBlue), var(--accentPurple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.topBar p {
+    color: var(--textSecondary);
+    font-size: 1rem;
+}
+
+/* Input Section */
+.inputSection {
+    background: var(--bgSecondary);
+    border: 1px solid var(--borderDefault);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.urlBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.urlBox label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--textSecondary);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.urlBox input {
+    padding: 12px 16px;
+    font-size: 1rem;
+    background: var(--bgPrimary);
+    border: 1px solid var(--borderDefault);
+    border-radius: 8px;
+    color: var(--textPrimary);
+    transition: border-color 0.2s;
+}
+
+.urlBox input:focus {
+    outline: none;
+    border-color: var(--accentBlue);
+}
+
+.primaryAction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bgPrimary);
+    background: var(--accentGreen);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.primaryAction:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.primaryAction:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.optionsRow {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.toggleWrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--textSecondary);
+}
+
+.toggleWrap input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accentGreen);
+    cursor: pointer;
+}
+
+/* Progress Panel */
+.progressPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 48px;
+    background: var(--bgSecondary);
+    border: 1px solid var(--borderDefault);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--borderDefault);
+    border-top-color: var(--accentBlue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#statusText {
+    color: var(--textSecondary);
+}
+
+/* Results Panel */
+.resultsPanel {
+    background: var(--bgSecondary);
+    border: 1px solid var(--borderDefault);
+    border-radius: 12px;
+    padding: 24px;
+    flex: 1;
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--borderDefault);
+}
+
+.resultsHeader h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.actionGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.secondaryAction, .dangerAction {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: 1px solid var(--borderDefault);
+}
+
+.secondaryAction {
+    background: var(--bgTertiary);
+    color: var(--textPrimary);
+}
+
+.dangerAction {
+    background: transparent;
+    color: var(--accentRed);
+    border-color: var(--accentRed);
+}
+
+.secondaryAction:hover, .dangerAction:hover {
+    opacity: 0.8;
+}
+
+.statsBar {
+    display: flex;
+    gap: 24px;
+    padding: 12px 16px;
+    background: var(--bgPrimary);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.statValue {
+    color: var(--accentGreen);
+    font-weight: 600;
+}
+
+/* Filter Bar */
+.filterBar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.filterBar input, .filterBar select {
+    padding: 10px 14px;
+    background: var(--bgPrimary);
+    border: 1px solid var(--borderDefault);
+    border-radius: 6px;
+    color: var(--textPrimary);
+    font-size: 0.875rem;
+}
+
+.filterBar input {
+    flex: 1;
+}
+
+.filterBar input:focus, .filterBar select:focus {
+    outline: none;
+    border-color: var(--accentBlue);
+}
+
+/* File Tree */
+.fileTree {
+    list-style: none;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid var(--borderDefault);
+    border-radius: 8px;
+    background: var(--bgPrimary);
+}
+
+.fileEntry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--borderDefault);
+    transition: background 0.15s;
+}
+
+.fileEntry:last-child {
+    border-bottom: none;
+}
+
+.fileEntry:hover {
+    background: var(--bgTertiary);
+}
+
+.fileIcon {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+.fileInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.fileName {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--textPrimary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filePath {
+    font-size: 0.75rem;
+    color: var(--textSecondary);
+    font-family: 'SF Mono', Monaco, monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fileMeta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.75rem;
+    color: var(--textSecondary);
+}
+
+.fileSize {
+    min-width: 60px;
+    text-align: right;
+}
+
+.copyLink {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: var(--accentBlue);
+    background: transparent;
+    border: 1px solid var(--accentBlue);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.copyLink:hover {
+    background: var(--accentBlue);
+    color: var(--bgPrimary);
+}
+
+.copyLink.copied {
+    background: var(--accentGreen);
+    border-color: var(--accentGreen);
+    color: var(--bgPrimary);
+}
+
+/* Error Banner */
+.errorBanner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: rgba(248, 81, 73, 0.1);
+    border: 1px solid var(--accentRed);
+    border-radius: 8px;
+    color: var(--accentRed);
+}
+
+.errorIcon {
+    font-size: 1.25rem;
+}
+
+/* Footer */
+.bottomBar {
+    text-align: center;
+    padding: 24px;
+    color: var(--textSecondary);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--borderDefault);
+    margin-top: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bgPrimary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--borderDefault);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--textSecondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .appWrapper {
+        padding: 16px;
+    }
+    
+    .resultsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .fileEntry {
+        flex-wrap: wrap;
+    }
+    
+    .fileMeta {
+        width: 100%;
+        justify-content: space-between;
+        padding-left: 36px;
+    }
+}
