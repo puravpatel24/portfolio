@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repo URL Fetcher</title>
+    <link rel="stylesheet" href="ghStyles.css">
+</head>
+<body>
+    <div class="appWrapper">
+        <header class="topBar">
+            <h1>🔗 GitHub URL Extractor</h1>
+            <p>Enter a GitHub repository URL to fetch all file URLs</p>
+        </header>
+
+        <main class="mainContent">
+            <section class="inputSection">
+                <div class="urlBox">
+                    <label for="repoInput">GitHub Repository URL</label>
+                    <input 
+                        type="text" 
+                        id="repoInput" 
+                        placeholder="https://github.com/username/repository"
+                        value="https://github.com/facebook/react"
+                    >
+                    <button id="fetchBtn" class="primaryAction">
+                        <span class="btnIcon">⬇️</span>
+                        Fetch Files
+                    </button>
+                </div>
+                
+                <div class="optionsRow">
+                    <label class="toggleWrap">
+                        <input type="checkbox" id="recursiveCheck" checked>
+                        <span>Include subdirectories</span>
+                    </label>
+                    <label class="toggleWrap">
+                        <input type="checkbox" id="rawCheck">
+                        <span>Raw GitHub URLs</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="progressPanel" id="progressArea" hidden>
+                <div class="spinner"></div>
+                <span id="statusText">Connecting to GitHub API...</span>
+            </section>
+
+            <section class="resultsPanel" id="resultsArea" hidden>
+                <div class="resultsHeader">
+                    <h2>📁 Found Files</h2>
+                    <div class="actionGroup">
+                        <button id="copyAllBtn" class="secondaryAction">Copy All</button>
+                        <button id="downloadBtn" class="secondaryAction">Download JSON</button>
+                        <button id="clearBtn" class="dangerAction">Clear</button>
+                    </div>
+                </div>
+                
+                <div class="statsBar" id="statsDisplay"></div>
+                
+                <div class="filterBar">
+                    <input 
+                        type="text" 
+                        id="filterInput" 
+                        placeholder="Filter by file extension (e.g., .js, .md)..."
+                    >
+                    <select id="sortSelect">
+                        <option value="path">Sort: Path</option>
+                        <option value="name">Sort: Name</option>
+                        <option value="size">Sort: Size</option>
+                    </select>
+                </div>
+
+                <ul class="fileTree" id="fileList"></ul>
+            </section>
+
+            <section class="errorBanner" id="errorArea" hidden>
+                <span class="errorIcon">⚠️</span>
+                <span id="errorText"></span>
+            </section>
+        </main>
+
+        <footer class="bottomBar">
+            <p>Uses GitHub API • Rate limit: 60 requests/hour (unauthenticated)</p>
+        </footer>
+    </div>
+
+    <script src="ghFetcher.js"></script>
+</body>
+</html>
