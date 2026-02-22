@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Stacking Context Demo</title>
+    <link rel="stylesheet" href="stackStyles.css">
+</head>
+<body>
+    <!-- Fixed Header with z-index: 100 -->
+    <header class="stickyBanner" id="topHeader">
+        <div class="bannerContent">
+            <h1>🔝 Fixed Header (z-index: 100)</h1>
+            <p>This header stays above all content when scrolling</p>
+        </div>
+        <div class="controls">
+            <button id="toggleHighZ" class="controlBtn">
+                Add z-index: 50 to Red Box
+            </button>
+            <button id="resetDemo" class="controlBtn secondary">
+                Reset Demo
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="scrollArea">
+        
+        <!-- Intro Section -->
+        <section class="explainPanel">
+            <h2>📚 Understanding Z-Index Stacking</h2>
+            <p>
+                This demo shows how <code>position: fixed</code> creates a new 
+                stacking context that competes at the root level, not within 
+                child containers.
+            </p>
+            <div class="currentState" id="stateDisplay">
+                <span class="stateLabel">Red Box z-index:</span>
+                <span class="stateValue" id="zValue">auto (none)</span>
+            </div>
+        </section>
+
+        <!-- Colorful Content Divs with z-index 1-3 -->
+        <div class="layerBox crimsonLayer" id="redBox">
+            <div class="layerLabel">
+                <span class="layerNum">1</span>
+                <div class="layerInfo">
+                    <h3>Crimson Layer</h3>
+                    <p>position: relative</p>
+                    <p>z-index: 1</p>
+                    <p id="redExtra" class="extraProp hidden">z-index: 50 (added)</p>
+                </div>
+            </div>
+            <div class="overlapHint">
+                ↑ Scroll up to see header overlap this box
+            </div>
+        </div>
+
+        <div class="layerBox emeraldLayer">
+            <div class="layerLabel">
+                <span class="layerNum">2</span>
+                <div class="layerInfo">
+                    <h3>Emerald Layer</h3>
+                    <p>position: relative</p>
+                    <p>z-index: 2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="layerBox sapphireLayer">
+            <div class="layerLabel">
+                <span class="layerNum">3</span>
+                <div class="layerInfo">
+                    <h3>Sapphire Layer</h3>
+                    <p>position: relative</p>
+                    <p>z-index: 3</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional boxes to enable scrolling -->
+        <div class="layerBox amberLayer">
+            <div class="layerLabel">
+                <span class="layerNum">4</span>
+                <div class="layerInfo">
+                    <h3>Amber Layer</h3>
+                    <p>position: relative</p>
+                    <p>z-index: 2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="layerBox violetLayer">
+            <div class="layerLabel">
+                <span class="layerNum">5</span>
+                <div class="layerInfo">
+                    <h3>Violet Layer</h3>
+                    <p>position: relative</p>
+                    <p>z-index: 1</p>
