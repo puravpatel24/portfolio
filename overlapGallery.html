@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Layer Gallery</title>
+    <link rel="stylesheet" href="galleryVisuals.css">
+</head>
+<body>
+    <div class="appFrame">
+        <!-- Header -->
+        <header class="topStrip">
+            <h1>🖼️ Click to Bring Forward</h1>
+            <p>Click any image to move it to the front (z-index: 10)</p>
+        </header>
+
+        <!-- Gallery Container -->
+        <main class="stageArea">
+            <div class="photoStack" id="imageStage">
+                
+                <!-- Image 1: Base Layer -->
+                <img 
+                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500" 
+                    alt="Mountain landscape"
+                    class="framePic picBase"
+                    data-original-z="1"
+                    id="picFirst"
+                >
+
+                <!-- Image 2: Middle Layer -->
+                <img 
+                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500" 
+                    alt="Forest trail"
+                    class="framePic picMiddle"
+                    data-original-z="2"
+                    id="picSecond"
+                >
+
+                <!-- Image 3: Top Layer -->
+                <img 
+                    src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=500" 
+                    alt="Waterfall"
+                    class="framePic picTop"
+                    data-original-z="3"
+                    id="picThird"
+                >
+
+            </div>
+
+            <!-- Visual Indicator -->
+            <div class="layerBadge" id="stackInfo">
+                <span class="badgeLabel">Current Stack:</span>
+                <div class="badgeItems" id="orderDisplay">
+                    <span class="zItem" data-z="1">1</span>
+                    <span class="zItem" data-z="2">2</span>
+                    <span class="zItem" data-z="3">3</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Control Panel -->
+        <aside class="controlDock">
+            <div class="dockSection">
+                <h3>🎛️ Manual Controls</h3>
+                <div class="btnCluster">
+                    <button class="stackBtn" onclick="bringToFront('picFirst')">
+                        Bring Mountain Forward
+                    </button>
+                    <button class="stackBtn" onclick="bringToFront('picSecond')">
+                        Bring Forest Forward
+                    </button>
+                    <button class="stackBtn" onclick="bringToFront('picThird')">
+                        Bring Waterfall Forward
+                    </button>
+                </div>
+            </div>
+
+            <div class="dockSection">
+                <h3>🔄 Reset</h3>
+                <button class="resetAction" onclick="restoreOriginalOrder()">
+                    Restore Original Stack (1, 2, 3)
+                </button>
+            </div>
+
+            <div class="dockSection codePreview">
+                <h3>📋 Current Z-Index Values</h3>
+                <pre id="codeOutput">
+// Click an image to see values update
+picFirst:  z-index: 1
+picSecond: z-index: 2
+picThird:  z-index: 3
+                </pre>
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="bottomStrip">
+            <p>Uses <code>querySelectorAll('img')</code> loop to manage stacking order</p>
+        </footer>
+    </div>
+
+    <script src="stackController.js"></script>
+</body>
+</html>
