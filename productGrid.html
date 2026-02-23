@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card Tooltip Demo</title>
+    <link rel="stylesheet" href="cardStyles.css">
+</head>
+<body>
+    <div class="appFrame">
+        <!-- Header -->
+        <header class="topBar">
+            <h1>🛒 Product Cards with Tooltips</h1>
+            <p>Hover cards to see tooltips. High z-index (999) prevents tooltips from hiding behind neighboring cards.</p>
+        </header>
+
+        <!-- Controls -->
+        <section class="controlPanel">
+            <div class="toggleGroup">
+                <label class="switchWrap">
+                    <input type="checkbox" id="highZToggle" checked>
+                    <span class="switchSlider"></span>
+                    <span class="switchLabel">High z-index on hover (999)</span>
+                </label>
+            </div>
+            <div class="statusDisplay" id="zStatus">
+                Current: <span class="statusValue active">z-index: 999 on hover</span>
+            </div>
+        </section>
+
+        <!-- Overlapping Product Grid -->
+        <main class="productArena">
+            <div class="cardCluster" id="cardStack">
+                
+                <!-- Card 1 -->
+                <article class="productCard" data-product="headphones" style="--rotation: -5deg; --offset-x: 0px; --offset-y: 0px;">
+                    <div class="cardVisual">
+                        <span class="productIcon">🎧</span>
+                        <span class="badge">Sale</span>
+                    </div>
+                    <div class="cardInfo">
+                        <h3>Premium Headphones</h3>
+                        <p class="price">$199.99</p>
+                        <p class="desc">Noise cancelling, 30hr battery</p>
+                    </div>
+                    <div class="infoTooltip" id="tip-headphones">
+                        <div class="tipArrow"></div>
+                        <div class="tipContent">
+                            <h4>🎧 Premium Headphones</h4>
+                            <ul>
+                                <li>Active Noise Cancellation</li>
+                                <li>30-hour battery life</li>
+                                <li>Bluetooth 5.3</li>
+                                <li>Spatial Audio support</li>
+                            </ul>
+                            <button class="tipAction">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="productCard" data-product="watch" style="--rotation: 3deg; --offset-x: -40px; --offset-y: 20px;">
+                    <div class="cardVisual" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <span class="productIcon">⌚</span>
+                        <span class="badge hot">Hot</span>
+                    </div>
+                    <div class="cardInfo">
+                        <h3>Smart Watch Pro</h3>
+                        <p class="price">$349.99</p>
+                        <p class="desc">Health tracking, GPS, waterproof</p>
+                    </div>
+                    <div class="infoTooltip" id="tip-watch">
+                        <div class="tipArrow"></div>
+                        <div class="tipContent">
+                            <h4>⌚ Smart Watch Pro</h4>
+                            <ul>
+                                <li>Heart rate & ECG monitoring</li>
+                                <li>Built-in GPS + Cellular</li>
+                                <li>50m water resistant</li>
+                                <li>7-day battery life</li>
+                            </ul>
+                            <button class="tipAction">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="productCard" data-product="camera" style="--rotation: -2deg; --offset-x: -80px; --offset-y: 40px;">
+                    <div class="cardVisual" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <span class="productIcon">📷</span>
+                        <span class="badge new">New</span>
+                    </div>
+                    <div class="cardInfo">
+                        <h3>Mirrorless Camera</h3>
+                        <p class="price">$899.99</p>
+                        <p class="desc">4K video, 24MP sensor</p>
+                    </div>
+                    <div class="infoTooltip" id="tip-camera">
+                        <div class="tipArrow"></div>
+                        <div class="tipContent">
+                            <h4>📷 Mirrorless Camera</h4>
+                            <ul>
+                                <li>24.2MP full-frame sensor</li>
+                                <li>4K 60fps video recording</li>
+                                <li>5-axis in-body stabilization</li>
+                                <li>Real-time eye autofocus</li>
+                            </ul>
+                            <button class="tipAction">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="productCard" data-product="speaker" style="--rotation: 4deg; --offset-x: -120px; --offset-y: 60px;">
+                    <div class="cardVisual" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <span class="productIcon">🔊</span>
+                        <span class="badge">-20%</span>
+                    </div>
+                    <div class="cardInfo">
+                        <h3>Portable Speaker</h3>
+                        <p class="price">$79.99</p>
+                        <p class="desc">360° sound, waterproof</p>
+                    </div>
+                    <div class="infoTooltip" id="tip-speaker">
+                        <div class="tipArrow"></div>
+                        <div class="tipContent">
+                            <h4>🔊 Portable Speaker</h4>
+                            <ul>
+                                <li>360° omnidirectional sound</li>
+                                <li>IP67 waterproof & dustproof</li>
+                                <li>20-hour playtime</li>
+                                <li>PartyBoost stereo pairing</li>
+                            </ul>
+                            <button class="tipAction">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="productCard" data-product="drone" style="--rotation: -4deg; --offset-x: -160px; --offset-y: 80px;">
+                    <div class="cardVisual" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                        <span class="productIcon">🚁</span>
+                        <span class="badge hot">Hot</span>
+                    </div>
+                    <div class="cardInfo">
+                        <h3>Mini Drone 4K</h3>
+                        <p class="price">$499.99</p>
+                        <p class="desc">4K camera, 10km range</p>
+                    </div>
+                    <div class="infoTooltip" id="tip-drone">
+                        <div class="tipArrow"></div>
+                        <div class="tipContent">
+                            <h4>🚁 Mini Drone 4K</h4>
+                            <ul>
+                                <li>4K/60fps HDR video</li>
+                                <li>10km O4 transmission</li>
+                                <li>34-min flight time</li>
+                                <li>Intelligent obstacle avoidance</li>
+                            </ul>
+                            <button class="tipAction">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- Explanation Panel -->
+        <aside class="explainBox">
+            <h3>🔍 Why z-index: 999 Matters</h3>
+            <div class="compareGrid">
+                <div class="compareCol">
+                    <h4>Without High z-index</h4>
+                    <div class="demoVisual bad">
+                        <div class="miniCard">Card A</div>
+                        <div class="miniTooltip hidden">Tooltip → hidden behind Card B</div>
+                        <div class="miniCard front">Card B</div>
+                    </div>
+                    <p>Tooltip gets clipped by overlapping cards</p>
+                </div>
+                <div class="compareCol">
+                    <h4>With z-index: 999</h4>
+                    <div class="demoVisual good">
+                        <div class="miniCard">Card A</div>
+                        <div class="miniTooltip shown">Tooltip → floats above all</div>
+                        <div class="miniCard front">Card B</div>
+                    </div>
+                    <p>Tooltip escapes stacking context</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Code Preview -->
+        <section class="codeBlock">
+            <h3>📝 JavaScript Implementation</h3>
+            <pre id="codePreview"><code>card.addEventListener('mouseenter', () => {
+    tooltip.style.zIndex = '999';  // Escape stacking context!
+    tooltip.style.display = 'block';
+});
+
+card.addEventListener('mouseleave', () => {
+    tooltip.style.display = 'none';
+});</code></pre>
+        </section>
+
+    </div>
+
+    <script src="tooltipEngine.js"></script>
+</body>
+</html>
