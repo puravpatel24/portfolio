@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Modal Card System</title>
+    <link rel="stylesheet" href="overlayStyles.css">
+</head>
+<body>
+    <div class="appShell">
+        <!-- Main Page Content -->
+        <main class="pageContent">
+            <header class="heroBlock">
+                <h1>🎴 Stacked Modal System</h1>
+                <p>Open multiple cards simultaneously with dynamic z-index layering</p>
+            </header>
+
+            <!-- Trigger Buttons -->
+            <section class="triggerGrid">
+                <button class="modalTrigger" data-modal="loginCard">
+                    <span class="triggerIcon">🔐</span>
+                    <span class="triggerLabel">Open Login</span>
+                </button>
+                <button class="modalTrigger" data-modal="signupCard">
+                    <span class="triggerIcon">📝</span>
+                    <span class="triggerLabel">Open Signup</span>
+                </button>
+                <button class="modalTrigger" data-modal="confirmCard">
+                    <span class="triggerIcon">✅</span>
+                    <span class="triggerLabel">Open Confirmation</span>
+                </button>
+            </section>
+
+            <!-- Open All Button -->
+            <div class="bulkAction">
+                <button class="stackAllBtn" onclick="openAllModals()">
+                    🎭 Open All Cards at Once
+                </button>
+            </div>
+
+            <!-- Active Stack Display -->
+            <aside class="stackMonitor" id="layerMonitor">
+                <h3>📊 Active Z-Index Stack</h3>
+                <ul class="layerList" id="activeLayers">
+                    <li class="emptyState">No active modals</li>
+                </ul>
+            </aside>
+        </main>
+
+        <!-- Modal Container -->
+        <div class="modalArena" id="modalStage">
+            
+            <!-- Login Card -->
+            <div class="modalWrap" id="loginCard" data-base-z="1000" style="z-index: -1;">
+                <div class="modalBackdrop" onclick="closeModal('loginCard')"></div>
+                <article class="modalCard">
+                    <header class="cardHead">
+                        <h2>🔐 Login</h2>
+                        <button class="closeX" onclick="closeModal('loginCard')">&times;</button>
+                    </header>
+                    <div class="cardBody">
+                        <div class="fieldGroup">
+                            <label>Email</label>
+                            <input type="email" placeholder="user@example.com">
+                        </div>
+                        <div class="fieldGroup">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <button class="submitAction">Sign In</button>
+                    </div>
+                    <footer class="cardFoot">
+                        <button class="nestTrigger" onclick="openModal('signupCard')">
+                            Need account? Sign up →
+                        </button>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Signup Card -->
+            <div class="modalWrap" id="signupCard" data-base-z="1000" style="z-index: -1;">
+                <div class="modalBackdrop" onclick="closeModal('signupCard')"></div>
+                <article class="modalCard">
+                    <header class="cardHead">
+                        <h2>📝 Create Account</h2>
+                        <button class="closeX" onclick="closeModal('signupCard')">&times;</button>
+                    </header>
+                    <div class="cardBody">
+                        <div class="fieldGroup">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="fieldGroup">
+                            <label>Email</label>
+                            <input type="email" placeholder="user@example.com">
+                        </div>
+                        <div class="fieldGroup">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <button class="submitAction">Create Account</button>
+                    </div>
+                    <footer class="cardFoot">
+                        <button class="nestTrigger" onclick="openModal('confirmCard')">
+                            Show confirmation →
+                        </button>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Confirmation Card -->
+            <div class="modalWrap" id="confirmCard" data-base-z="1000" style="z-index: -1;">
+                <div class="modalBackdrop" onclick="closeModal('confirmCard')"></div>
+                <article class="modalCard confirmTheme">
+                    <header class="cardHead">
+                        <h2>✅ Success!</h2>
+                        <button class="closeX" onclick="closeModal('confirmCard')">&times;</button>
+                    </header>
+                    <div class="cardBody centerBody">
+                        <div class="successIcon">🎉</div>
+                        <p>Your action was completed successfully.</p>
+                        <button class="submitAction" onclick="closeAllModals()">
+                            Done
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="layerManager.js"></script>
+</body>
+</html>
