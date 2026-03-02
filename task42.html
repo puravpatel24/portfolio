@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 42 - Product Cards Tooltip (z-index)</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    p.note {
+      margin: 0 0 18px;
+      color: #374151;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Stage where cards overlap */
+    .stage {
+      position: relative;
+      height: 420px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 16px;
+      overflow: visible; /* important for tooltip visibility */
+    }
+
+    /* Card */
+    .card {
+      position: relative;   /* requirement */
+      z-index: 10;          /* requirement */
+      width: 260px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+      cursor: default;
+      user-select: none;
+    }
+
+    .card .img {
+      height: 120px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #93c5fd, #fca5a5);
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #16a34a;
+      margin: 0;
+    }
+
+    .meta {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: absolute;  /* requirement */
+      z-index: 20;         /* requirement (base) */
+      display: none;       /* JS will toggle */
+      left: 14px;
+      top: -10px;
+      transform: translateY(-100%);
+      min-width: 220px;
+      max-width: 260px;
+      background: #111827;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+      font-size: 13px;
+      line-height: 1.35;
+      pointer-events: none; /* tooltip doesn't steal hover */
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      bottom: -7px;
+      width: 14px;
+      height: 14px;
+      background: #111827;
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+
+    /* Overlapping placement (intentionally) */
+    .card.pos1 { position: absolute; left: 20px;  top: 40px;  }
+    .card.pos2 { position: absolute; left: 190px; top: 120px; } /* overlaps pos1 */
+    .card.pos3 { position: absolute; left: 100px; top: 230px; } /* overlaps others */
+
+    /* To make overlap obvious */
+    .card.pos2 { transform: rotate(1deg); }
+    .card.pos3 { transform: rotate(-1deg); }
+
+    /* Hover effect 
