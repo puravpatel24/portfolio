@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Z-Index Tooltip Task</title>
+    <link rel="stylesheet" href="product_styles.css">
+</head>
+<body>
+
+    <h3>Task: Overlapping Cards with High Z-Index Tooltip</h3>
+    <p>Hover over the cards to see how the tooltip stays on top of other cards.</p>
+
+    <div class="container">
+        <div class="product-card" id="card1" style="top: 0; left: 0;">
+            Card 1
+            <div class="tooltip">High Priority Info 1</div>
+        </div>
+
+        <div class="product-card" id="card2" style="top: 50px; left: 50px;">
+            Card 2
+            <div class="tooltip">High Priority Info 2</div>
+        </div>
+
+        <div class="product-card" id="card3" style="top: 100px; left: 100px;">
+            Card 3
+            <div class="tooltip">High Priority Info 3</div>
+        </div>
+    </div>
+
+    <script src="tooltip_logic.js"></script>
+</body>
+</html>
